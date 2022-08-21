@@ -4,10 +4,10 @@ const Category = require('./Category');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
-// Products belongsTo Category
-Products.belongsTo(Category,{            // this is a one to one relationship between Product and Category
+// Products belongsTo Category and belongsToMany Tags
+Product.belongsTo(Category,{            // this is a one to one relationship between Product and Category
   foreignKey: 'category_id',             // the column in products that maps to category_id                  
-}  
+  }  
 );
 
 // Categories have many Products

@@ -1,5 +1,5 @@
-const seedCategories = require('./category-seeds');
-const seedProducts = require('./product-seeds');
+const seedCategories = require('./category-seeds');   // import the seed function from the category-seeds.js file
+const seedProducts = require('./product-seeds');  
 const seedTags = require('./tag-seeds');
 const seedProductTags = require('./product-tag-seeds');
 const sequelize = require('../config/connection');
