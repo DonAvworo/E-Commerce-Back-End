@@ -1,0 +1,107 @@
+==============================================================
+WORK-FLOW & LOGIC
+==============================================================
+Set up GitHub Repo
+Server.js import config/connection
+Set up .env and add in DB Connection variables
+Npm i to install Node dependancies
+Npm start to test connection
+Login to MySql
+Run the db/schema.sql file to create the db
+Add category_name column to Category Model
+Npm run seed to run the seed script
+Add sequelize.sync to server.js
+Add get route to category-routes.js, don't forget to make function async
+Npm start
+In Insomnia, test with GET http://localhost:3001/api/categories/
+
+
+================================================================
+Addin the category_id column to the Product Model
+================================================================
+
+This is the correct JSON for creating a product:
+ {
+      "product_name": "Basketball",
+      "price": 200.00,
+      "stock": 3,
+      "tagIds": [1, 2, 3, 4]
+    }
+
+    This is the correct JSON for creating a category:
+    {
+      "category_name": "Sports"
+    }
+
+    This is the correct JSON for creating a tag:
+    {
+      "tag_name": "Basketball"
+    }
+
+    This is the correct JSON for creating a user:
+    {
+      "username": "John",
+      "password": "password"
+    }
+
+    This is the correct JSON for creating a review:
+    {
+      "review_text": "This is a great product",
+      "rating": 5,
+      "userId": 1,
+      "productId": 1
+    }
+*/
+
+associations examples:
+
+models.Product.belongsToMany              // means that a product can have many tags and a tag can have many products
+models.Tag.belongsToMany                  // means that a tag can have many products and a product can have many tags
+models.User.hasMany                       // means that a user can have many reviews and a review can have one user
+models.Review.belongsTo(models.User);     // means that a review can have one user and a user can have many reviews
+models.Product.hasMany(models.Review);    // means that a product can have many reviews and a review can have one product
+models.Review.belongsTo(models.Product);  // means that a review can have one product and a product can have many reviews
+models.User.hasMany(models.Review);       // means that a user can have many reviews and a review can have one user
+
+-------------------------------------------------------------------------
+To fire up the server, run the following command to start mysql:
+=========================================================================
+ * mysql -u root -p or mysql -u root (if you have no password prompt for it) 
+    * source db/schema.sql to create the db and tables (where db is the folder of the schema.sql file)
+        * quit
+
+=========================================================================
+To run the seed script and start the server:
+=========================================================================
+ * npm run seed
+    * npm start
+
+=========================================================================
+insomnia deployment:
+=========================================================================
+ * POST http://localhost:3001/api/categories
+    * body: { "category_name": "Sports" }
+    * headers: { "Content-Type": "application/json" }
+    * response: { "id": 1, "category_name": "Sports" }
+
+ * GET http://localhost:3001/api/categories
+    * response: [{ "id": 1, "category_name": "Sports" }, 
+    { "id": 2, "category_name": "Electronics" }]
+=========================================================================
+-------------------------------------------------------------------------
+Miscipleneous notes:
+==========================================================================
+dot env file: 
+-------------- 
+stores sensitive information in a file that is not committed to the repo
+
+gitiignore file:
+----------------
+stores files that are not committed to the repo
+
+json packages:
+--------------
+json files are used to store data in a format that is easy to read and edit
+
+
+==========================================================================
