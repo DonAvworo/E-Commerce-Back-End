@@ -17,7 +17,7 @@ In Insomnia, test with GET http://localhost:3001/api/categories/
 
 
 ================================================================
-Addin the category_id column to the Product Model
+Adding the category_id column to the Product Model
 ================================================================
 
 This is the correct JSON for creating a product:
