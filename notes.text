@@ -95,9 +95,21 @@ dot env file:
 -------------- 
 stores sensitive information in a file that is not committed to the repo
 
+  - the .env file hold connection credentials and any connection.js file will fail if not present. 
+  - the .env file will just have name/value pairs
+  - the .env is a good way to store sensitive information like passwords and keys
+  - the .env file must be present for the app to run properly 
+  - the .env file must be in the root of the project
+  - the .env should must be in the .gitignore file
+  - the .env file should not be committed to the repo
+
 gitiignore file:
 ----------------
-stores files that are not committed to the repo
+  - stores files that are not committed to the repo
+  - the .gitignore file is a good way to exclude files from being committed to the repo
+  - the .gitignore file must be in the root of the project
+  - the .gitignore file should must be in the .gitignore file
+
 
 json packages:
 --------------

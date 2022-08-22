@@ -74,7 +74,7 @@ router.put('/:id', async (req, res) => {                // add async await to th
 router.delete('/:id', (req, res) => {               // add async await to this function so that it returns a promise
   // delete a category by its `id` value
   try {                                             // try to delete a category by its `id` value and return it to the client if successful (this is a promise)
-    const CategoryData = await Category.destroy({   // delete a category by its `id` value and return it to the client if successful (this is a promise)
+    const CategoryData =  Category.destroy({   // delete a category by its `id` value and return it to the client if successful (this is a promise)
       where: {
         id: req.params.id,                         // delete a category by its `id` value and return it to the client if successful (this is a promise)
       },  
